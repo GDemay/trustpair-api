@@ -1,0 +1,7 @@
+{
+  "name": "API",
+  "description": "Flask",
+  "repository": "https://github.com/GDemay/api-trustpair",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["flask", "python"]
+}
