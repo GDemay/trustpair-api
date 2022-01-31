@@ -37,7 +37,7 @@ Now visit http://localhost:5000
  * Debugger is active!
 ```
 
-If you have problems generating the database, do these different command lines
+**If you have problems generating the database, do these different command lines**
 
 ```
 $ flask db init
