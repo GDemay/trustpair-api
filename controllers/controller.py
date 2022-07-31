@@ -13,7 +13,7 @@ class RestaurantController:
     restaurants = Restaurant.query.all()
     return jsonify([r.serialize() for r in restaurants])
 
-  def get_restaurant(name):
+  def get_restaurant(self):
     """[Get a restaurant from name in the database]
 
     Args:
@@ -22,7 +22,7 @@ class RestaurantController:
     Returns:
         [JSON]: [Return the restaurant object]
     """
-    restaurant = Restaurant.query.filter_by(name=name).first()
+    restaurant = Restaurant.query.filter_by(self=self).first()
     if restaurant is None:
       return jsonify({"message": "Restaurant not found"}), 404
     return restaurant.serialize()
@@ -53,7 +53,7 @@ class RestaurantController:
     db.session.commit()
     return restaurant.serialize()
 
-  def delete_restaurant(name):
+  def delete_restaurant(self):
     """[Delete a restaurant from the database]
 
     Args:
@@ -62,14 +62,14 @@ class RestaurantController:
     Returns:
         [JSON]: [Message of success or failure]
     """
-    restaurant = Restaurant.query.filter_by(name=name).first()
+    restaurant = Restaurant.query.filter_by(self=self).first()
     if restaurant is None:
       return jsonify({"message": "Conflict error with Restaurant object"}), 409
     db.session.delete(restaurant)
     db.session.commit()
     return {'message': 'Restaurant deleted'}
 
-  def update_restaurant(name):
+  def update_restaurant(self):
     """[Update a restaurant from the database]
 
     Args:
@@ -78,7 +78,7 @@ class RestaurantController:
     Returns:
         [JSON]: [Return the restaurant object]
     """
-    restaurant = Restaurant.query.filter_by(name=name).first()
+    restaurant = Restaurant.query.filter_by(self=self).first()
     if restaurant is None:
       return jsonify({"message": "Conflict error with Restaurant object"}), 409
     restaurant.name = request.json['name']
